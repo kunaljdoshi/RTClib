@@ -1,3 +1,5 @@
+// Library modified to update time for LED MAtrix Display by Kunal Doshi
+// More info @ http://www.kunaldoshi.com/home/projects/arduino-projects/digital-name-plate
 // Code by JeeLabs http://news.jeelabs.org/code/
 // Released to the public domain! Enjoy!
 
@@ -15,6 +17,12 @@ public:
     uint8_t minute() const      { return mm; }
     uint8_t second() const      { return ss; }
     uint8_t dayOfWeek() const;
+	void update_second(uint8_t val);   //Added by KD
+	void update_minute(uint8_t val);   //Added by KD
+	void update_hour(uint8_t val);   //Added by KD
+	void update_day(uint8_t val);   //Added by KD
+	void update_month(uint8_t val);   //Added by KD
+	void update_year(uint8_t val);   //Added by KD
 
     // 32-bit times as seconds since 1/1/2000
     long secondstime() const;   
