@@ -1,3 +1,6 @@
+// Library modified to update time for LED MAtrix Display by Kunal Doshi
+// More info @ http://www.kunaldoshi.com/home/projects/arduino-projects/digital-name-plate
+
 // Code by JeeLabs http://news.jeelabs.org/code/
 // Released to the public domain! Enjoy!
 
@@ -73,6 +76,104 @@ DateTime::DateTime (uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uin
     mm = min;
     ss = sec;
 }
+
+void DateTime::update_second(uint8_t val)
+{
+	if(val){
+		if(ss<59)
+		ss++;
+		else
+			ss=0;
+	}
+	else {
+		if(ss>0)
+		ss--;
+		else
+			ss=59;
+	}
+	
+}
+
+void DateTime::update_minute(uint8_t val)
+{
+	if(val){
+		if(mm<59)
+		mm++;
+		else
+			mm=0;
+	}
+	else {
+		if(mm>0)
+		mm--;
+		else
+			mm=59;
+	}
+}
+
+void DateTime::update_hour(uint8_t val)
+{
+	if(val){
+		if(hh<24)
+		hh++;
+		else
+			hh=0;
+	}
+	else {
+		if(hh>0)
+		hh--;
+		else
+			hh=24;
+	}
+}
+
+void DateTime::update_day(uint8_t val)
+{
+	if(val){
+		if(d<31)
+		d++;
+		else
+			d=1;
+	}
+	else {
+		if(d>2)
+		d--;
+		else
+			d=31;
+	}
+}
+
+void DateTime::update_month(uint8_t val)
+{
+	if(val){
+		if(m<12)
+		m++;
+		else
+		m=1;
+	}
+	else {
+		if(m>2)
+		m--;
+		else
+		m=12;
+	}
+}
+
+void DateTime::update_year(uint8_t val)
+{
+	if(val){
+		if(yOff<99)
+		yOff++;
+		else
+			yOff=10;
+	}
+	else{
+		if(yOff>10)
+		yOff--;
+		else
+			yOff = 99;
+	}
+}
+
 
 static uint8_t conv2d(const char* p) {
     uint8_t v = 0;
